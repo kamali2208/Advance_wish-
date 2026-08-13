@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#020202">
+<title>THE ADVANCE WISH — Thraveen × Kamali</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#020202;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+
+body.lock{
+  overflow:hidden;
+}
+
+:root{
+  --gold:#d7b96d;
+  --lightgold:#f5e2a7;
+  --darkgold:#8e6d32;
+}
+
+#particles{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+  opacity:.65;
+}
+
+section{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:80px 20px;
+}
+
+section:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(215,185,109,.08),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.1),
+      rgba(0,0,0,.7)
+    );
+}
+
+.content{
+  width:min(900px,94%);
+  text-align:center;
+  position:relative;
+  z-index:5;
+}
+
+.serif{
+  font-family:'Cormorant Garamond',serif;
+}
+
+.gold{
+  color:var(--lightgold);
+  text-shadow:
+    0 0 15px rgba(245,226,167,.18),
+    0 0 50px rgba(215,185,109,.1);
+}
+
+.tiny{
+  font-size:9px;
+  letter-spacing:5px;
+  opacity:.55;
+  text-transform:uppercase;
+}
+
+.gold-line{
+  width:1px;
+  height:85px;
+  margin:30px auto;
+  background:
+    linear-gradient(
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.lux-btn{
+  margin-top:30px;
+  padding:15px 32px;
+  background:rgba(255,255,255,.025);
+  color:var(--lightgold);
+  border:1px solid rgba(245,226,167,.35);
+  letter-spacing:3px;
+  font-size:9px;
+  text-transform:uppercase;
+  backdrop-filter:blur(15px);
+  transition:.5s;
+}
+
+.lux-btn:hover{
+  transform:translateY(-4px);
+  background:rgba(215,185,109,.1);
+  box-shadow:0 15px 50px rgba(215,185,109,.15);
+}
+
+/* INTRO */
+
+#intro{
+  background:
+    radial-gradient(
+      circle,
+      rgba(215,185,109,.1),
+      transparent 25%
+    ),
+    #010101;
+}
+
+.intro-small{
+  letter-spacing:8px;
+  font-size:10px;
+  color:#cdb474;
+}
+
+.intro-title{
+  margin-top:30px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(55px,11vw,120px);
+  font-weight:300;
+  line-height:.82;
+  letter-spacing:4px;
+}
+
+.intro-sub{
+  margin-top:35px;
+  font-size:9px;
+  letter-spacing:5px;
+  opacity:.45;
+}
+
+/* COUNTDOWN */
+
+#countdown{
+  background:#030303;
+}
+
+.count-title{
+  font-size:clamp(48px,8vw,80px);
+  font-weight:300;
+  margin-top:15px;
+}
+
+.count-grid{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:45px;
+  flex-wrap:wrap;
+}
+
+.counter{
+  width:110px;
+  padding:22px 10px;
+  border:1px solid rgba(215,185,109,.18);
+  background:rgba(255,255,255,.025);
+  backdrop-filter:blur(20px);
+}
+
+.counter strong{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:43px;
+  font-weight:400;
+  color:var(--lightgold);
+}
+
+.counter span{
+  font-size:8px;
+  letter-spacing:3px;
+  opacity:.45;
+}
+
+/* LETTER */
+
+#letter{
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(215,185,109,.08),
+      transparent 25%
+    ),
+    #020202;
+}
+
+.envelope{
+  width:min(340px,85vw);
+  height:220px;
+  margin:45px auto 25px;
+  position:relative;
+  cursor:pointer;
+  perspective:900px;
+}
+
+.env-body{
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(215,185,109,.4);
+  background:
+    linear-gradient(
+      135deg,
+      #171208,
+      #050505
+    );
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.7);
+}
+
+.env-flap{
+  position:absolute;
+  inset:0;
+  background:#0b0905;
+  clip-path:
+    polygon(0 0,100% 0,50% 58%);
+  transform-origin:top;
+  transition:1s;
+  z-index:3;
+}
+
+.envelope.open .env-flap{
+  transform:rotateX(180deg);
+}
+
+.seal{
+  position:absolute;
+  z-index:5;
+  width:58px;
+  height:58px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:#070604;
+  color:var(--lightgold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.7s;
+}
+
+.envelope.open .seal{
+  opacity:0;
+  transform:
+    translate(-50%,-50%)
+    scale(1.5);
+}
+
+.letter-text{
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s;
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  line-height:1.5;
+  color:#ead69a;
+}
+
+.letter-text.show{
+  opacity:1;
+  transform:none;
+}
+
+/* GOLDEN TICKET */
+
+#ticket{
+  background:#010101;
+}
+
+.ticket-card{
+  width:min(720px,94%);
+  padding:35px;
+  border:1px solid rgba(215,185,109,.4);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(215,185,109,.08),
+      rgba(255,255,255,.015)
+    );
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.75);
+}
+
+.ticket-inner{
+  padding:45px 20px;
+  border:1px dashed rgba(245,226,167,.35);
+}
+
+.ticket-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,8vw,78px);
+  font-weight:300;
+  color:var(--lightgold);
+}
+
+.ticket-name{
+  margin-top:20px;
+  letter-spacing:6px;
+  font-size:11px;
+}
+
+.ticket-date{
+  margin-top:15px;
+  font-size:8px;
+  letter-spacing:4px;
+  opacity:.45;
+}
+
+.ticket-answer{
+  margin-top:25px;
+  color:#ead69a;
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+  display:none;
+}
+
+/* STORY */
+
+#story{
+  background:#040404;
+}
+
+.story-box{
+  max-width:700px;
+  min-height:360px;
+  margin:auto;
+  padding:50px 30px;
+  border:1px solid rgba(215,185,109,.17);
+  background:rgba(255,255,255,.018);
+  backdrop-filter:blur(25px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.story-number{
+  font-size:9px;
+  letter-spacing:4px;
+  color:#a8894b;
+}
+
+.story-line{
+  margin:30px auto;
+  max-width:600px;
+  min-height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(31px,6vw,55px);
+  line-height:1.15;
+  color:#f3e2aa;
+  transition:.5s;
+}
+
+/* VAULT */
+
+#vault{
+  background:
+    radial-gradient(
+      circle,
+      rgba(215,185,109,.09),
+      transparent 27%
+    ),
+    #020202;
+}
+
+.vault-card{
+  width:min(450px,94%);
+  margin:auto;
+  padding:45px 30px;
+  border:1px solid rgba(215,185,109,.25);
+  background:rgba(255,255,255,.025);
+  backdrop-filter:blur(25px);
+}
+
+.lock-symbol{
+  font-size:45px;
+  color:var(--lightgold);
+}
+
+.password{
+  width:100%;
+  margin-top:25px;
+  padding:16px;
+  background:#070707;
+  border:1px solid rgba(215,185,109,.25);
+  color:white;
+  text-align:center;
+  outline:none;
+  letter-spacing:4px;
+}
+
+.vault-message{
+  margin-top:18px;
+  min-height:18px;
+  color:#e4c979;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.unlocked{
+  display:none;
+  margin-top:25px;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.unlocked.show{
+  display:flex;
+}
+
+.vault-item{
+  padding:13px 16px;
+  border:1px solid rgba(215,185,109,.2);
+  color:#e9d38e;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+/* GIFT */
+
+#gift{
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(215,185,109,.1),
+      transparent 30%
+    ),
+    #010101;
+}
+
+.gift{
+  width:190px;
+  height:160px;
+  position:relative;
+  margin:50px auto 25px;
+  cursor:pointer;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+.gift-body{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:110px;
+  background:
+    linear-gradient(
+      135deg,
+      #1b1509,
+      #050505
+    );
+  border:1px solid #b9984e;
+}
+
+.gift-lid{
+  position:absolute;
+  top:20px;
+  left:-8px;
+  width:calc(100% + 16px);
+  height:38px;
+  background:#171108;
+  border:1px solid #d6b96e;
+  z-index:3;
+  transition:1s;
+}
+
+.ribbon{
+  position:absolute;
+  left:50%;
+  top:20px;
+  bottom:0;
+  width:22px;
+  transform:translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      #87672d,
+      #f2d889,
+      #87672d
+    );
+  z-index:4;
+}
+
+.gift.open .gift-lid{
+  transform:
+    translateY(-100px)
+    rotate(-5deg);
+}
+
+.gift-result{
+  font-family:'Cormorant Garamond',serif;
+  color:#ead69a;
+  font-size:25px;
+  line-height:1.5;
+}
+
+/* CAKE */
+
+#cake{
+  background:
+    radial-gradient(
+      circle at center 65%,
+      rgba(215,185,109,.14),
+      transparent 25%
+    ),
+    #010101;
+}
+
+.cake{
+  width:250px;
+  height:190px;
+  margin:50px auto 20px;
+  position:relative;
+}
+
+.layer{
+  position:absolute;
+  border:1px solid #bd984d;
+  background:
+    linear-gradient(
+      #21190a,
+      #070604
+    );
+}
+
+.layer1{
+  bottom:0;
+  left:20px;
+  width:210px;
+  height:65px;
+}
+
+.layer2{
+  bottom:57px;
+  left:38px;
+  width:174px;
+  height:65px;
+}
+
+.layer3{
+  bottom:112px;
+  left:60px;
+  width:130px;
+  height:50px;
+}
+
+.candle{
+  position:absolute;
+  bottom:162px;
+  width:7px;
+  height:40px;
+  background:
+    linear-gradient(
+      #f5e19b,
+      #94702e
+    );
+}
+
+.candle:nth-of-type(4){
+  left:78px;
+}
+
+.candle:nth-of-type(5){
+  left:122px;
+}
+
+.candle:nth-of-type(6){
+  left:166px;
+}
+
+.flame{
+  width:13px;
+  height:18px;
+  position:absolute;
+  top:-18px;
+  left:-3px;
+  background:#f4d878;
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  box-shadow:
+    0 0 25px #e7bd50;
+  animation:flicker .5s infinite alternate;
+}
+
+@keyframes flicker{
+  to{
+    transform:
+      rotate(-42deg)
+      scale(1.1);
+  }
+}
+
+.cake.blown .flame{
+  display:none;
+}
+
+/* FINAL */
+
+#final{
+  background:
+    radial-gradient(
+      circle,
+      rgba(215,185,109,.08),
+      transparent 28%
+    ),
+    #010101;
+}
+
+.heart{
+  font-size:54px;
+  color:#d9b96c;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.2)}
+  30%{transform:scale(1)}
+  45%{transform:scale(1.15)}
+}
+
+.final-title{
+  margin-top:25px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,9vw,95px);
+  font-weight:300;
+  color:#f4e0a0;
+  line-height:.95;
+}
+
+.final-text{
+  max-width:620px;
+  margin:30px auto;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  line-height:1.8;
+  color:#d8ccb0;
+}
+
+.signature{
+  margin-top:35px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  color:#e6cc83;
+}
+
+/* MUSIC */
+
+.music{
+  position:fixed;
+  z-index:100;
+  right:18px;
+  top:18px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:rgba(0,0,0,.65);
+  border:1px solid rgba(245,226,167,.35);
+  color:#f0d88e;
+}
+
+.music.playing{
+  animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* CURTAIN */
+
+#curtain{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:#010101;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:1.5s;
+}
+
+#curtain.hide{
+  opacity:0;
+  pointer-events:none;
+}
+
+.curtain-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,10vw,90px);
+  color:#eed994;
+  font-weight:300;
+}
+
+.curtain-sub{
+  margin-top:18px;
+  font-size:9px;
+  letter-spacing:5px;
+  opacity:.45;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(45px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* FIREWORK */
+
+.firework{
+  position:fixed;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  z-index:150;
+  pointer-events:none;
+  animation:boom 1.5s ease-out forwards;
+}
+
+@keyframes boom{
+  0%{
+    box-shadow:
+      0 0 0 0 #f4df9b;
+    opacity:1;
+  }
+
+  100%{
+    box-shadow:
+      0 -100px 0 #f4df9b,
+      70px -70px 0 #d3aa58,
+      100px 0 #f4df9b,
+      70px 70px 0 #d3aa58,
+      0 100px 0 #f4df9b,
+      -70px 70px 0 #d3aa58,
+      -100px 0 #f4df9b,
+      -70px -70px 0 #d3aa58;
+    opacity:0;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  section{
+    padding:70px 15px;
+  }
+
+  .counter{
+    width:75px;
+  }
+
+  .counter strong{
+    font-size:30px;
+  }
+
+  .ticket-card{
+    padding:18px;
+  }
+
+  .ticket-inner{
+    padding:35px 10px;
+  }
+
+  .story-box{
+    padding:35px 18px;
+  }
+
+}
+</style>
+</head>
+
+<body class="lock">
+
+<canvas id="particles"></canvas>
+
+<!-- MUSIC -->
+<button class="music" id="musicBtn">♫</button>
+
+<audio id="music" loop>
+  <!-- OPTIONAL:
+  <source src="music.mp3" type="audio/mpeg">
+  -->
+</audio>
+
+
+<!-- INTRO CURTAIN -->
+
+<div id="curtain">
+
+  <div class="content">
+
+    <div class="tiny">
+      A PRIVATE CINEMATIC EXPERIENCE
+    </div>
+
+    <div class="curtain-title">
+      For Thraveen
+    </div>
+
+    <div class="curtain-sub">
+      22 AUGUST 2026 • ADVANCE WISH
+    </div>
+
+    <button class="lux-btn"
+            onclick="enterExperience()">
+      ENTER EXPERIENCE
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- 01 INTRO -->
+
+<section id="intro">
+
+  <div class="content">
+
+    <div class="intro-small">
+      KAMALI PRESENTS
+    </div>
+
+    <h1 class="intro-title">
+      THE<br>
+      <span class="gold">
+        ADVANCE WISH
+      </span>
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <div class="intro-sub">
+      A LITTLE EARLY • A LOT OF LOVE
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 02 COUNTDOWN -->
+
+<section id="countdown">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      THE DAY IS COMING
+    </div>
+
+    <h2 class="count-title serif gold">
+      22 • 08 • 2026
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="tiny">
+      YOUR BIRTHDAY COUNTDOWN
+    </div>
+
+    <div class="count-grid">
+
+      <div class="counter">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div class="counter">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div class="counter">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="counter">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 03 SECRET LETTER -->
+
+<section id="letter">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      BEFORE YOUR BIRTHDAY
+    </div>
+
+    <h2 class="serif gold"
+        style="font-size:55px;margin-top:15px;">
+      I Couldn't Wait...
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="tiny">
+      SOMETHING IS WAITING FOR YOU
+    </div>
+
+    <div class="envelope"
+         id="envelope"
+         onclick="openEnvelope()">
+
+      <div class="env-body"></div>
+
+      <div class="env-flap"></div>
+
+      <div class="seal">
+        K
+      </div>
+
+    </div>
+
+    <div class="letter-text"
+         id="letterText">
+
+      Your birthday hasn't arrived yet...<br><br>
+
+      but my wish for you<br>
+      already has. ❤️
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 04 GOLDEN TICKET -->
+
+<section id="ticket">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      SPECIAL ADMISSION
+    </div>
+
+    <div class="ticket-card">
+
+      <div class="ticket-inner">
+
+        <div class="tiny">
+          ONE SPECIAL EXPERIENCE
+        </div>
+
+        <div class="ticket-big">
+          Golden Ticket
+        </div>
+
+        <div class="ticket-name">
+          THRAVEEN × KAMALI
+        </div>
+
+        <div class="ticket-date">
+          VALID • 22 AUGUST 2026 • FOREVER
+        </div>
+
+        <button class="lux-btn"
+                onclick="acceptTicket()">
+          ACCEPT THE TICKET
+        </button>
+
+        <div class="ticket-answer"
+             id="ticketAnswer">
+
+          Your seat is already reserved. ❤️
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 05 STORY -->
+
+<section id="story">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      A SMALL LOVE STORY
+    </div>
+
+    <h2 class="serif gold"
+        style="font-size:55px;margin:15px 0 35px;">
+      Before The Birthday...
+    </h2>
+
+    <div class="story-box">
+
+      <div class="story-number"
+           id="storyNumber">
+        01 / 06
+      </div>
+
+      <div class="story-line"
+           id="storyLine">
+
+        Some people enter your life...
+
+      </div>
+
+      <button class="lux-btn"
+              onclick="nextStory()">
+        CONTINUE
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 06 VAULT -->
+
+<section id="vault">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      PRIVATE ACCESS
+    </div>
+
+    <h2 class="serif gold"
+        style="font-size:55px;margin:15px 0 35px;">
+      The Love Vault
+    </h2>
+
+    <div class="vault-card">
+
+      <div class="lock-symbol">
+        ♢
+      </div>
+
+      <div class="tiny"
+           style="margin-top:15px;">
+        ONLY FOR THRAVEEN
+      </div>
+
+      <input
+        id="password"
+        class="password"
+        type="password"
+        placeholder="ENTER SECRET CODE">
+
+      <button class="lux-btn"
+              onclick="unlockVault()">
+        UNLOCK
+      </button>
+
+      <div class="vault-message"
+           id="vaultMessage"></div>
+
+      <div class="unlocked"
+           id="unlocked">
+
+        <div class="vault-item">
+          💌 SECRET LETTER
+        </div>
+
+        <div class="vault-item">
+          ♡ FOREVER
+        </div>
+
+        <div class="vault-item">
+          🎵 OUR SONG
+        </div>
+
+        <div class="vault-item">
+          🎁 FINAL SURPRISE
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 07 GIFT -->
+
+<section id="gift">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      ONE LAST SURPRISE
+    </div>
+
+    <h2 class="serif gold"
+        style="font-size:55px;margin-top:15px;">
+      This Is For You
+    </h2>
+
+    <div class="gift"
+         id="giftBox"
+         onclick="openGift()">
+
+      <div class="gift-body"></div>
+
+      <div class="gift-lid"></div>
+
+      <div class="ribbon"></div>
+
+    </div>
+
+    <div class="gift-result"
+         id="giftResult">
+
+      Tap the box.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 08 CAKE -->
+
+<section id="cake">
+
+  <div class="content reveal">
+
+    <div class="tiny">
+      THE MOMENT
+    </div>
+
+    <h2 class="serif gold"
+        style="font-size:60px;margin-top:15px;">
+      Make A Wish
+    </h2>
+
+    <div class="cake"
+         id="birthdayCake">
+
+      <div class="layer layer1"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer3"></div>
+
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+
+    </div>
+
+    <div class="tiny">
+      TAP TO BLOW THE CANDLES
+    </div>
+
+    <button class="lux-btn"
+            onclick="blowCandles()">
+      MAKE A WISH
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- 09 FINAL -->
+
+<section id="final">
+
+  <div class="content reveal">
+
+    <div class="heart">
+      ♥
+    </div>
+
+    <div class="tiny"
+         style="margin-top:35px;">
+      FROM KAMALI
+    </div>
+
+    <h1 class="final-title">
+      Happy Advance<br>
+      Birthday, Thraveen.
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <div class="final-text">
+
+      Your birthday is still coming...
+
+      <br><br>
+
+      But my wish for you<br>
+      started already.
+
+      <br><br>
+
+      I hope every dream you carry<br>
+      finds its way to you.
+
+      <br><br>
+
+      And through every new chapter,<br>
+      I hope I get to be there.
+
+    </div>
+
+    <div class="signature">
+      — Kamali ❤️
+    </div>
+
+    <button class="lux-btn"
+            onclick="replay()">
+      WATCH AGAIN
+    </button>
+
+  </div>
+
+</section>
+
+
+<script>
+
+/* =========================================
+   CONFIG
+========================================= */
+
+const BIRTHDAY =
+new Date("August 22, 2026 00:00:00").getTime();
+
+/*
+   SECRET VAULT PASSWORD
+   Change this if you want.
+*/
+
+const SECRET_PASSWORD = "2208";
+
+
+/* =========================================
+   ENTER EXPERIENCE
+========================================= */
+
+function enterExperience(){
+
+  document
+    .getElementById("curtain")
+    .classList.add("hide");
+
+  document
+    .body
+    .classList
+    .remove("lock");
+
+  const audio =
+    document.getElementById("music");
+
+  if(audio.src){
+
+    audio.play().catch(()=>{});
+
+    document
+      .getElementById("musicBtn")
+      .classList
+      .add("playing");
+
+  }
+
+  setTimeout(()=>{
+
+    document
+      .getElementById("countdown")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  },900);
+
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+musicBtn.onclick=()=>{
+
+  if(!music.src){
+
+    alert(
+      "Music add panna music.mp3 file-a same folder-la vainga."
+    );
+
+    return;
+
+  }
+
+  if(music.paused){
+
+    music.play();
+
+    musicBtn
+      .classList
+      .add("playing");
+
+  }else{
+
+    music.pause();
+
+    musicBtn
+      .classList
+      .remove("playing");
+
+  }
+
+};
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function countdown(){
+
+  const now =
+    new Date().getTime();
+
+  const distance =
+    BIRTHDAY-now;
+
+  if(distance<=0){
+
+    ["days","hours","minutes","seconds"]
+      .forEach(id=>{
+        document
+          .getElementById(id)
+          .textContent="00";
+      });
+
+    return;
+
+  }
+
+  const d =
+    Math.floor(
+      distance/
+      (1000*60*60*24)
+    );
+
+  const h =
+    Math.floor(
+      (distance%
+      (1000*60*60*24))/
+      (1000*60*60)
+    );
+
+  const m =
+    Math.floor(
+      (distance%
+      (1000*60*60))/
+      (1000*60)
+    );
+
+  const s =
+    Math.floor(
+      (distance%
+      (1000*60))/
+      1000
+    );
+
+  document.getElementById("days")
+    .textContent=String(d).padStart(2,"0");
+
+  document.getElementById("hours")
+    .textContent=String(h).padStart(2,"0");
+
+  document.getElementById("minutes")
+    .textContent=String(m).padStart(2,"0");
+
+  document.getElementById("seconds")
+    .textContent=String(s).padStart(2,"0");
+
+}
+
+setInterval(countdown,1000);
+countdown();
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+function openEnvelope(){
+
+  const envelope =
+    document.getElementById("envelope");
+
+  const text =
+    document.getElementById("letterText");
+
+  envelope.classList.toggle("open");
+
+  setTimeout(()=>{
+
+    text.classList.add("show");
+
+  },600);
+
+}
+
+
+/* =========================================
+   TICKET
+========================================= */
+
+function acceptTicket(){
+
+  document
+    .getElementById("ticketAnswer")
+    .style.display="block";
+
+  fireworks(6);
+
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+const story=[
+
+  "Some people enter your life...",
+
+  "Somehow, they become your favourite person.",
+
+  "Then ordinary moments start feeling special.",
+
+  "And without even noticing...",
+
+  "You become a beautiful part of my story.",
+
+  "And that's why your birthday deserves more than a wish. ❤️"
+
+];
+
+let storyIndex=0;
+
+function nextStory(){
+
+  storyIndex++;
+
+  if(storyIndex>=story.length){
+    storyIndex=0;
+  }
+
+  const line =
+    document.getElementById("storyLine");
+
+  line.style.opacity="0";
+  line.style.transform=
+    "translateY(20px)";
+
+  setTimeout(()=>{
+
+    line.textContent=
+      story[storyIndex];
+
+    document
+      .getElementById("storyNumber")
+      .textContent=
+      String(storyIndex+1)
+      .padStart(2,"0")
+      +" / "
+      +String(story.length)
+      .padStart(2,"0");
+
+    line.style.opacity="1";
+
+    line.style.transform=
+      "translateY(0)";
+
+  },450);
+
+}
+
+
+/* =========================================
+   VAULT
+========================================= */
+
+function unlockVault(){
+
+  const input =
+    document
+      .getElementById("password")
+      .value
+      .trim();
+
+  const message =
+    document
+      .getElementById("vaultMessage");
+
+  const unlocked =
+    document
+      .getElementById("unlocked");
+
+  if(input===SECRET_PASSWORD){
+
+    message.textContent=
+      "ACCESS GRANTED • WELCOME ❤️";
+
+    unlocked
+      .classList
+      .add("show");
+
+    fireworks(5);
+
+  }else{
+
+    message.textContent=
+      "ACCESS DENIED • TRY AGAIN";
+
+  }
+
+}
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+function openGift(){
+
+  const gift =
+    document.getElementById("giftBox");
+
+  const result =
+    document.getElementById("giftResult");
+
+  gift.classList.add("open");
+
+  result.innerHTML=
+    "The best gifts aren't wrapped...<br>"+
+    "<span style='font-size:18px;opacity:.7'>"+
+    "they become memories. ❤️"+
+    "</span>";
+
+  fireworks(7);
+
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+function blowCandles(){
+
+  const cake =
+    document
+      .getElementById("birthdayCake");
+
+  cake.classList.add("blown");
+
+  fireworks(14);
+
+  setTimeout(()=>{
+
+    document
+      .getElementById("final")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  },1800);
+
+}
+
+
+/* =========================================
+   FIREWORKS
+========================================= */
+
+function fireworks(amount){
+
+  for(let i=0;i<amount;i++){
+
+    setTimeout(()=>{
+
+      const f =
+        document.createElement("div");
+
+      f.className="firework";
+
+      f.style.left=
+        (10+Math.random()*80)+"vw";
+
+      f.style.top=
+        (10+Math.random()*60)+"vh";
+
+      document
+        .body
+        .appendChild(f);
+
+      setTimeout(()=>{
+        f.remove();
+      },1600);
+
+    },i*150);
+
+  }
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target
+        .classList
+        .add("visible");
+
+    }
+
+  });
+
+},
+{
+  threshold:.15
+});
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(el=>{
+    observer.observe(el);
+  });
+
+
+/* =========================================
+   GOLD PARTICLES
+========================================= */
+
+const canvas =
+document.getElementById("particles");
+
+const ctx =
+canvas.getContext("2d");
+
+let particles=[];
+
+function resize(){
+
+  canvas.width=
+    window.innerWidth;
+
+  canvas.height=
+    window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener(
+  "resize",
+  resize
+);
+
+for(let i=0;i<100;i++){
+
+  particles.push({
+
+    x:
+      Math.random()*
+      window.innerWidth,
+
+    y:
+      Math.random()*
+      window.innerHeight,
+
+    r:
+      Math.random()*1.5+.2,
+
+    speed:
+      Math.random()*.35+.05,
+
+    opacity:
+      Math.random()*.5+.1
+
+  });
+
+}
+
+function animate(){
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  particles.forEach(p=>{
+
+    p.y-=p.speed;
+
+    if(p.y<0){
+
+      p.y=canvas.height;
+
+      p.x=
+        Math.random()*
+        canvas.width;
+
+    }
+
+    ctx.beginPath();
+
+    ctx.arc(
+      p.x,
+      p.y,
+      p.r,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fillStyle=
+      "rgba(238,211,142,"+
+      p.opacity+
+      ")";
+
+    ctx.fill();
+
+  });
+
+  requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+/* =========================================
+   REPLAY
+========================================= */
+
+function replay(){
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+  </html>
